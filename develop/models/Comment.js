@@ -17,6 +17,21 @@ Comment.init(
         },
         comment: {
             type: Datatypes.STRING,
+            allowNull: false,
+        },
+        user_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
+        post_id: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id',
+            },
         }
     },
     {
@@ -26,6 +41,6 @@ Comment.init(
         underscored: true,
         modelNameL: 'comment',
     }
-)
+);
 
 module.exports = Comment;
