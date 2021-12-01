@@ -2,7 +2,7 @@
 // THEN the comment is saved and the post is updated to display the comment, 
 // the comment creator’s username, and the date created
 
-const { Model, Datatypes }= require('sequelize');
+const { Model, Datatypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {}
