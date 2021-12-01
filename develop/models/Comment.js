@@ -2,7 +2,7 @@
 // THEN the comment is saved and the post is updated to display the comment, 
 // the comment creator’s username, and the date created
 
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {}
@@ -10,24 +10,29 @@ class Comment extends Model {}
 Comment.init(
     {
         id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
         comment: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
         user_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
             },
         },
         post_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'post',
                 key: 'id',
@@ -39,7 +44,7 @@ Comment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelNameL: 'comment',
+        modelName: 'comment',
     }
 );
 
