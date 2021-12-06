@@ -2,22 +2,6 @@ const router = require('express').Router();
 const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/comment', withAuth, async (req, res) => {
-    try {
-        const newComment = await Comment.create({
-            comment: req.body.comment,
-            user_id: req.session.loggedUser,
-            post_id: req.session.currentPost,
-        });
-
-        req.session.save(() => {
-            res.status(204).json(newComment);
-        })
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-})
 
 router.post('/', withAuth, async (req, res) => {
     try {
@@ -32,40 +16,67 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-router.delete('/delete/:id', withAuth, async (req, res) => {
+
+
+router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const deletePost = await Post.destroy({
+        const postData = await Post.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
             },
         });
 
-        if (!deletePost) {
+        if (!postData) {
             res.status(404).json({ message: 'No post found with this id!' });
             return;
         }
 
-        res.status(200).json(deletePost);
+        res.status(200).json(postData);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
+
+
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        const updatePost = await Post.update({
+        const postData = await Post.update({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
             },
         });
 
-        res.status(200).json(updatePost);
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
+
+        res.status(200).json(postData);
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+
+
+// router.post('/comment', withAuth, async (req, res) => {
+//     try {
+//         const newComment = await Comment.create({
+//             comment: req.body.comment,
+//             user_id: req.session.loggedUser,
+//             post_id: req.session.currentPost,
+//         });
+
+//         req.session.save(() => {
+//             res.status(204).json(newComment);
+//         })
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// });
 
 module.exports = router;
 
