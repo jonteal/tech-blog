@@ -74,7 +74,7 @@ router.get('/edit/"id', async (req, res) => {
     }
 })
 
-router.get('dashboard', withAuth, async (req, res) => {
+router.get('home', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.loggedUser, {
             include: {
@@ -84,7 +84,7 @@ router.get('dashboard', withAuth, async (req, res) => {
         });
         user = userData.get({ plain: true })
         
-        res.render('dashboard', { user, loggedIn: req.session.loggedIn, loggedUser: req.session.loggedUser })
+        res.render('home', { user, loggedIn: req.session.loggedIn, loggedUser: req.session.loggedUser })
     } catch (err) {
         res.status(500).json(err);
     }
