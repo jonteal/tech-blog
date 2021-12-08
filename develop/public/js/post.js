@@ -1,4 +1,6 @@
 // New Post Form Handler
+
+let postID;
 const newFormHandler = async (event) => {
     event.preventDefault();
 
