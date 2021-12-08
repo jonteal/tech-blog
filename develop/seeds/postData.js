@@ -1,4 +1,6 @@
-[
+const { Post } = require('../models');
+
+const postData = [
     {
         "title": "How to write great CSS",
         "post": "Don't forget about your media queries!",
@@ -19,4 +21,8 @@
         "post": "Know your data structures and algorithmic principles.",
         "user_id": 4
     }
-]
+];
+
+const seedPost = () => Post.bulkCreate(postData);
+
+module.exports = seedPost;
