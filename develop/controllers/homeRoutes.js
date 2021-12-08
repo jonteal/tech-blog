@@ -93,17 +93,4 @@ router.get("/login", (req, res) => {
 });
 
 
-// router.get('/edit/"id', async (req, res) => {
-//     try {
-//         const postData = await Post.findByPk(req.params.id);
-//         const post = postData.get({ plain: true })
-//         res.status(200).json(post);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
-
-
-
-
 module.exports = router;

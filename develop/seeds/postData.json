@@ -3,35 +3,35 @@
         "id": 1,
         "title": "How to write great CSS",
         "created_date": "1/4/21",
-        "post": "Don't forget about your media queries!",
+        "content": "Don't forget about your media queries!",
         "user_id": 1
     },
     {
         "id": 2,
         "title": "The power of descriptive HTML tags",
         "created_date": "2/8/21",
-        "post": "They are way more descriptive than plain old divs!",
+        "content": "They are way more descriptive than plain old divs!",
         "user_id": 2
     },
     {
         "id": 3,
         "title": "Why Javascript is the best coding language",
         "created_date": "3/6/21",
-        "post": "It's very intuitive when you really think about it.",
+        "content": "It's very intuitive when you really think about it.",
         "user_id": 3
     },
     {
         "id": 4,
         "title": "How to land your first tech job",
         "created_date": "4/12/21",
-        "post": "Know your data structures and algorithmic principles.",
+        "content": "Know your data structures and algorithmic principles.",
         "user_id": 4
     },
     {
-    "id": 4,
-    "title": "How to land your first tech job",
-    "created_date": "4/12/21",
-    "post": "Know your data structures and algorithmic principles.",
-    "user_id": 4
+        "id": 4,
+        "title": "How to land your first tech job",
+        "created_date": "4/12/21",
+        "content": "Know your data structures and algorithmic principles.",
+        "user_id": 4
     }  
 ]
