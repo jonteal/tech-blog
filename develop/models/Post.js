@@ -19,9 +19,13 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        post: {
-            type: DataTypes.STRING,
+        content: {
+            type: DataTypes.TEXT,
             allowNull: false,
+        },
+        created_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -30,11 +34,6 @@ Post.init(
                 key: 'id',
             },
         },
-        // date_created: {
-        //     type: DataTypes.DATE,
-        //     allowNull: true,
-        //     defaultValue: DataTypes.NOW,
-        // }
     },
     {
         sequelize,

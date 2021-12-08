@@ -32,11 +32,6 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
 
-    if (!req.session.logged_in) {
-        res.redirect('/login');
-        return;
-    }
-
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -71,10 +66,6 @@ router.get('/:id', async (req, res) => {
 
 router.get('dashboard', async (req, res) => {
 
-    if (!req.session.logged_in) {
-        res.redirect('/login');
-        return;
-    }
 
     try {
         const userData = await User.findByPk(req.session.user_id, {
