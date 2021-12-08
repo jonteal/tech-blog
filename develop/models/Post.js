@@ -30,16 +30,11 @@ Post.init(
                 key: 'id',
             },
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        date_created: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
-        }
+        // date_created: {
+        //     type: DataTypes.DATE,
+        //     allowNull: true,
+        //     defaultValue: DataTypes.NOW,
+        // }
     },
     {
         sequelize,

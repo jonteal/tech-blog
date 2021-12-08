@@ -19,11 +19,6 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

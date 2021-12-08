@@ -1,16 +1,10 @@
-const userSeed = require('./userData');
-const commentSeed = require('./commentData');
-const postSeed = require('./postData');
-
-
+const userData = require('./userData.json');
+const postData = require('./postData.json');
+const commentData = require('./commentData.json');
 
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
 
-
-const userData = require('./userData.json');
-const postData = require('./postData.json');
-const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -19,19 +13,20 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
     });
-
+console.log(users);
     for (const post of postData) {
         await Post.create({
             ...post,
-            user_id: users[Math.floor(Math.random() * users.length)].isSoftDeleted,
+            user_id: users[Math.floor(Math.random() * users.length)].id,
         });
     }
+console.log("======================================================")
 
-    // for (const comment of commentData) {
-    //     await Comment.create({
-    //         ...comment,
-    //     })
-    // }
+    for (const comment of commentData) {
+        await Comment.create({
+            ...comment,
+        })
+    }
 
     process.exit(0);
 }
