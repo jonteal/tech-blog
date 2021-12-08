@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { User, Post, Comment } = require('../models');
+// const withAuth = require('../utils/auth');
 
+
+// GET all posts
 router.get('/', async (req, res) => {
     try {
         // GET all posts and JOIN with user data
@@ -17,16 +19,24 @@ router.get('/', async (req, res) => {
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
 
-        res.render('homepage', {
+        res.render('all', {
             posts,
-            logged_in: req.session.logged_in
+            username: req.session.username,
+            user_id: req.session.user_id,
+            logged_in: req.session.logged_in,
         });
     }   catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
+
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
+
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -47,6 +57,8 @@ router.get('/post/:id', async (req, res) => {
 
         const post = postData.get({ plain: true });
 
+        req.session.postId = post.id;
+
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in
@@ -54,10 +66,16 @@ router.get('/post/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 
-router.get('profile', withAuth, async (req, res) => {
+router.get('dashboard', async (req, res) => {
+
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
+
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
@@ -66,9 +84,9 @@ router.get('profile', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true })
         
-        res.render('profile', {
+        res.render('dashboard', {
             ...user,
-            logged_in: true
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -76,10 +94,10 @@ router.get('profile', withAuth, async (req, res) => {
 });
 
 
-
+// Login route
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('profile');
+        res.redirect('/');
         return;
     }
 
