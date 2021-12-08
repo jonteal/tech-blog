@@ -8,14 +8,14 @@ const newFormHandler = async (event) => {
     if (title && description) {
         const response = await fetch(`/api/posts`, {
             method: 'POST',
-            body: JSON.stringify({ name, description }),
+            body: JSON.stringify({ title, description }),
             headers: {
                 'Content-Type': 'application/json',
             },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to create post');
         }
@@ -54,9 +54,9 @@ const delButtonHandler = async (event) => {
         });
 
         if ( response.ok ) {
-            document.location.replace('/profile');
+            document.location.replace('/dashboard');
         } else {
-            alert('Failed to delete project');
+            alert('Failed to delete post!');
         }
     }
 };
@@ -71,5 +71,3 @@ document
     .querySelector('.post-list')
     .addEventListener('click', delButtonHandler);
 
-// editForm
-//     .addEventListener('sumbit', editButtonHandler);

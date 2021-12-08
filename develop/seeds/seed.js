@@ -31,17 +31,4 @@ console.log("======================================================")
     process.exit(0);
 }
 
-
-// const seedAll = async () => {
-//     await sequelize.sync({ force: true }).catch((err) => { console.log(err) });
-
-//     await userSeed().catch((err) => { console.log(err) });
-
-//     await postSeed().catch((err) => { console.log(err) });
-
-//     await commentSeed().catch((err) => { console.log(err) });
-
-//     process.exit(0);
-// };
-
 seedDatabase();
