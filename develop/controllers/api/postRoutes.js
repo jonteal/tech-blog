@@ -1,18 +1,12 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET individual posts by ID
 router.get('/:id', async (req, res) => {
-    if (!req.session.logged_in) {
-        res.redirect('/login');
-        return;
-    }
 
     try {
-        const postData = await Post.findByPk(req.params.id, {
-
-        });
+        const postData = await Post.findByPk(req.params.id, {});
 
         const post = postData.get({ plain: true });
 
@@ -31,6 +25,7 @@ router.post('/', async (req, res) => {
         const newPost = await Post.create({
             ...req.body,
             user_id: req.session.user_id,
+            created_date: new Data(),
         });
 
         res.status(200).json(newPost);
@@ -41,7 +36,7 @@ router.post('/', async (req, res) => {
 
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.destroy({
             where: {
@@ -63,17 +58,12 @@ router.delete('/:id', async (req, res) => {
 
 
 
-router.put('/edit/:id', async (req, res) => {
-    if (!req.session.logged_in) {
-        res.redirect('/login');
-        return;
-    }
-    
+router.put('/:id', async (req, res) => {  
     try {
         const postData = await Post.update({
 
             title: req.body.title,
-            post: req.body.post
+            content: req.body.content,
         },
         {
             where: {
@@ -81,34 +71,12 @@ router.put('/edit/:id', async (req, res) => {
             },
         });
 
-        if (!postData) {
-            res.status(404).json({ message: 'No post found with this id!' });
-            return;
-        }
-
-        res.status(200).json(postData);
+        res.status(201).json(postData);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 
-router.post('/comment', async (req, res) => {
-    try {
-        const newComment = await Comment.create({
-            comment: req.body.comment,
-            user_id: req.session.user_id,
-            post_id: req.session.post_id,
-        });
-
-
-        res.status(204).json(newComment);
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
 
 module.exports = router;
-
