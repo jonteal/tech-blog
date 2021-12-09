@@ -2,8 +2,8 @@
 // THEN I am presented with the post title, contents, post creator’s username, and date created 
 // for that post and have the option to leave a comment
 
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Post extends Model {}
 
@@ -23,24 +23,20 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        created_date: {
-            type: DataTypes.DATEONLY,
-            allowNull: true,
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
-                key: 'id',
+                model: "user",
+                key: "id",
             },
         },
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post',
+        modelName: "post",
     }
 );
 
