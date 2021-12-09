@@ -7,6 +7,8 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         // GET all posts and JOIN with user data
+
+        console.log(req.body);
         const postData = await Post.findAll({
             include: [
                 {
@@ -17,8 +19,9 @@ router.get('/', async (req, res) => {
         });
 
         // Serialize data so the template can read it
+    
         const posts = postData.map((post) => post.get({ plain: true }));
-
+        
         res.render("homepage", {
             posts,
             username: req.session.username,
