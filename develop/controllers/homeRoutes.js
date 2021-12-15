@@ -24,13 +24,22 @@ router.get('/', async (req, res) => {
         
         res.render("homepage", {
             posts,
-            username: req.session.username,
-            user_id: req.session.user_id,
             logged_in: req.session.logged_in,
         });
     }   catch (err) {
         res.status(500).json(err);
     }
+});
+
+// Login route
+router.get("/login", (req, res) => {
+    console.log(req.session);
+    if (req.session.logged_in) {
+        res.redirect("/");
+        return;
+    }
+
+    res.render("login");
 });
 
 router.get('/:id', async (req, res) => {
@@ -85,15 +94,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 });
 
 
-// Login route
-router.get("/login", (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect("/");
-        return;
-    }
 
-    res.render("login");
-});
 
 
 module.exports = router;

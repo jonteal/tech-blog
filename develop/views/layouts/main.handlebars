@@ -17,11 +17,11 @@
             {{!-- Navigation Bar --}}
         <nav>
             <!-- Conditionally render login or logout links -->
-            {{#if loggedIn}}
-            <a href="/profile">profile</a> |
+            {{#if logged_in}}
+            <a href="/dashboard">dashboard</a> |
             <button class="no-button" id="logout">logout</button>
             {{else}}
-            <a href="/login">login</a>
+            <a href="/login">login asdf</a>
             {{/if}}
         </nav>
 
@@ -35,7 +35,7 @@
         {{{ body }}}
     </main>
 
-    {{#if loggedIn}}
+    {{#if logged_in}}
     <script src="../js/logout.js"></script>
     {{else}}
     <script src="../js/login.js"
