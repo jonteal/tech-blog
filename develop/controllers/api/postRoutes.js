@@ -3,7 +3,7 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET individual posts by ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
 
     try {
         const postData = await Post.findByPk(req.params.id, {});
@@ -19,8 +19,8 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-
-router.post('/', async (req, res) => {
+// CREATE A POST
+router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await Post.create({
             ...req.body,
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
 });
 
 
-
+// DELETE A POST
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.destroy({

@@ -3,11 +3,12 @@ const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
+    console.log(req.body);
     try {
         const newComment = await Comment.create({
             ...req.body,
             user_id: req.session.user_id,
-            post_id: req.session.post_id,
+            post_id: req.body.post_id,
         });
 
         res.status(200).json(newComment);
@@ -16,7 +17,7 @@ router.post("/", withAuth, async (req, res) => {
     }
 });
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const getPost = await Comment.findByPk(req.params.id, {});
         const post = getPost.get({ plain: true });

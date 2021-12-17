@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Create a new user
+// Create a new user / SIGN UP
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
@@ -47,11 +47,15 @@ router.post('/login', async (req, res) => {
             return;
         }
         console.log(userData.username);
-        res.session.save(() => {
-            req.session.logged_in = true;
+        console.log(userData.id);
 
-            req.session.username = userData.username;
-            req.session.user_id = userData.id;
+        // Creating a session, creating a cookie. Stored in a request object
+        req.session.save(() => {
+            req.session.logged_in = true; // Creating a property called logged in and setting equal to true
+
+            req.session.username = userData.username; // Creating a property called username and setting it equal to the user's data (username)
+            req.session.user_id = userData.id; // Creating a user id and setting it equal to the id of the user
+            
 
 
             res
