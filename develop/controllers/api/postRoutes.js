@@ -10,7 +10,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        req.session.postId = post.id;
+        req.session.post_id = post.id;
 
         res.json(post);
 
