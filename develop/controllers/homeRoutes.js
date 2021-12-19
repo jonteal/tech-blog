@@ -31,7 +31,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Login route
+
+// GET Login route
 router.get("/login", (req, res) => {
     console.log(req.session);
     if (req.session.logged_in) {
@@ -44,7 +45,7 @@ router.get("/login", (req, res) => {
 
 
 
-
+// GET dashboard/ profile route
 router.get('/dashboard', withAuth, async (req, res) => {
 
     try {
@@ -64,6 +65,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
+
+// GET Post by ID
 router.get('/:id', async (req, res) => {
 
     try {
