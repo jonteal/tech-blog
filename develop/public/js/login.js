@@ -1,7 +1,6 @@
-console.log("Are we in here?");
+// Login Form handler
 const loginFormHandler = async (event) => {
     event.preventDefault();
-console.log("=====inside login======");
     const username = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 

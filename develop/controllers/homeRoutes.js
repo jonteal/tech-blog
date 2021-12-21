@@ -66,8 +66,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-// GET Post by ID
-router.get('/:id', async (req, res) => {
+// // GET Post by ID
+router.get('/post/:id', async (req, res) => {
 
     try {
         const postData = await Post.findByPk(req.params.id, {
@@ -89,7 +89,7 @@ router.get('/:id', async (req, res) => {
         req.session.post_id = post.id;
 
         res.render("post", {
-            post,
+            ...post,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
