@@ -2,25 +2,6 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// // // GET individual posts by ID
-// router.get('/:id', withAuth, async (req, res) => {
-
-//     try {
-//         const postData = await Post.findByPk(req.params.id, {});
-
-//         const post = postData.get({ plain: true });
-
-//         req.session.post_id = post.id;
-
-//         res.render("blogPost", {
-//             post,
-//             logged_in: req.session.logged_in,
-//         });
-
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
 
 // CREATE A POST
 router.post('/', withAuth, async (req, res) => {
