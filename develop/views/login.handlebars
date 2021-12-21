@@ -2,7 +2,7 @@
 <div class="row">
 
     {{!-- Login --}}
-    <div class="col-md-6">
+    {{!-- <div class="col-md-6">
         <h2>Login</h2>
 
         <form class="form login-form">
@@ -18,10 +18,42 @@
                 <button class="btn btn-primary" type="submit">Login</button>
             </div>
         </form>
+    </div> --}}
+
+{{!-- BULMA --}}
+<div>
+<h2>Login</h2>
+<form class="login-form">
+    <div class="field">
+    <p class="control has-icons-left has-icons-right">
+        <input class="input form-input" placeholder="username" type="text" id="email-login">
+        <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+    </p>
     </div>
+    <div class="field">
+    <p class="control has-icons-left">
+        <input class="input form-input" type="password" placeholder="password" id="password-login">
+        <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+        </span>
+    </p>
+    </div>
+    <div class="field">
+    <p class="control">
+        <button class="button is-success btn" type="submit">
+        Login
+        </button>
+    </p>
+    </div>
+</form>
 
     {{!-- Create an Account / Signup --}}
-    <div class="col-md-6">
+    {{!-- <div class="col-md-6">
         <h2>Signup</h2>
 
         <form class="form signup-form">
@@ -38,6 +70,38 @@
         </div>
         </form>
     </div>
-</div>
+</div> --}}
+
+{{!-- BULMA --}}
+
+<h2>Signup</h2>
+<form class="signup-form">
+    <div class="field">
+    <p class="control has-icons-left has-icons-right">
+        <input class="input form-input" placeholder="username" type="text" id="name-signup">
+        <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+    </p>
+    </div>
+    <div class="field">
+    <p class="control has-icons-left">
+        <input class="input form-input" type="password" placeholder="password" id="password-signup">
+        <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+        </span>
+    </p>
+    </div>
+    <div class="field">
+    <p class="control">
+        <button class="button is-success btn" type="submit">
+        Login
+        </button>
+    </p>
+    </div>
+</form>
 
 <script src="./js/login.js"></script>

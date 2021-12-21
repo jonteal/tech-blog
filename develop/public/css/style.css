@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: xx-large;
+}
