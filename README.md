@@ -1,20 +1,3 @@
-
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-
-
-
-
 # The Daily Dev - Tech Blog
 
 <a name="description"></a>
@@ -213,7 +196,7 @@ If you have any questions or comments, please feel free to contact me by email:
 ## Links
 Github Repository: https://github.com/jonteal/tech-blog
 
-Heroku Live Link: Heroku: 
+Heroku Live Link: Heroku: https://thedailydev.herokuapp.com/
 
 
 <a name="credits"></a>
