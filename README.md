@@ -1,10 +1,50 @@
-# 14 Model-View-Controller (MVC): Tech Blog
 
-## Your Task
+### Deployment: 32%
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
+* Application deployed at live URL.
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+* Application loads with no errors.
+
+* Application GitHub URL submitted.
+
+* GitHub repository contains application code.
+
+
+* The URL of the functional, deployed application.
+
+* The URL of the GitHub repository, with a unique name and a readme describing the project.
+
+
+
+
+
+# The Daily Dev - Tech Blog
+
+<a name="description"></a>
+<!--  Added description -->
+## Description
+The purpose of this blog is to be a hub of technology and web development information for developers and coders to have a place to share information about technical concepts, recent advancements, and new technologies. Visitors to the site are able to read and digest the work of others, and if they so wish, can become members and create posts and contribute to the conversation of their community.  
+
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Table of Contents
+- [Description](#description)
+- [User Story](#userstory)
+- [Acceptance Criteria](#acceptancecriteria)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+- [Video](#video)
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Resources / Credits](#credits)
+
+
+<a name="userstory"></a>
 
 ## User Story
 
@@ -13,6 +53,8 @@ AS A developer who writes about tech
 I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
+
+<a name="acceptancecriteria"></a>
 
 ## Acceptance Criteria
 
@@ -52,71 +94,135 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
 
-## Mock-Up
+<a name="installation"></a>
 
-The following animation demonstrates the application functionality:
+## Installation
+* Clone the repository using:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+```
+git clone https://github.com/jonteal/tech-blog
+```
+* Be sure that you are in the current working directory
+* Create a .env file. (See below in Usage for how to set up.)
+* Install the dependencies (bcrypt, connect-session-sequelize, express-handlebars, express, dotenv, mysql2, and sequelize) by opening the terminal and running...
+```
+npm install OR npm i
+```
+* In the terminal, log into the MySql by typing
+```
+mysql -u root -p
+```
+* Then type in your password for MySql. Once logged in, you will need to source the schema file in the db folder. In order to do that, type in the following in the terminal and hit enter afterwards. 
+```
+SOURCE db/schema.sql;
+```
+* Once the schema file is sourced, type 'exit' in the command line and get out of mysql.
+* The next step is to run the seed data in order to populate the database. To do that, run the following in the command line.
+```
+npm run seed
+```
+* Next, run the project by typing the following command in the terminal:
+```
+npm run start OR node server.js OR npm run dev (for nodemon)
+```
 
-## Getting Started
+<a name="usage"></a>
 
-Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views, use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+## Usage
+* In order to use the application, the user can either run the program on their localhost port or access the application via the deployed Heroku link (included below).
 
-You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables, the [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords, and the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+* To access via their localhost port, once they have their server running by following the instructions in the previous section, they just need to go to their localhost:3001 (3001 is the port already in place on the server.js file), and the application will run from there. Note - if using the application via localhost, the user will need to create a .env file and create in order to access the application. In the .env file, they will need the following:
 
-**Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
+```
+DB_NAME=brightideas_db
+DB_USER=(user-name)
+DB_PASSWORD=(user-password)
+```
 
-## Grading Requirements
+* To access via the deployed link at Heroku, see link below.
 
-This homework is graded based on the following criteria:
+* Once the application is running, the user only needs to sign up with their username and chosen password. Once logged in, they'll be on the homepage, displaying all users' blog posts. From here, they can go view and comment on any blog post simply by clicking the title of a post and being navigated to that post.
 
-### Technical Acceptance Criteria: 40%
+* The user can also go to their dashboard where they can create their own blog posts by following the instructions. If they wish, they may delete their own posts at any time as well.  
 
-* Satisfies all of the preceding acceptance criteria plus the following:
+* At any time, the user can logout of the website. A user does not need to be logged in to read the posts on the site.
 
-    * Application’s folder structure follows the Model-View-Controller paradigm.
 
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
+<a name="license"></a>
 
-    * Application must be deployed to Heroku.
+## License
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-### Deployment: 32%
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-* Application deployed at live URL.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-* Application loads with no errors.
 
-* Application GitHub URL submitted.
+<a name="contributing"></a>
 
-* GitHub repository contains application code.
+## How to Contribute
+1. [Fork the repo!](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+2. Create a feature branch:
+```
+git checkout -b yourname-branch
+```
+3. Commit changes:
+```
+git commit -m 'Your changes here'
+```
+4. Push to the branch:
+```
+git push origin yourname-branch
+```
+5. Submit a pull request and wait for it to be approved or denied.
 
-### Application Quality: 15%
+<a name="tests"></a>
 
-* User experience is intuitive and easy to navigate.
+## Tests
+No tests available at this time.
 
-* User interface style is clean and polished.
 
-* Application resembles the mock-up functionality provided in the homework instructions.
+<a name="questions"></a>
 
-### Repository Quality: 13%
+## Questions
+If you have any questions or comments, please feel free to contact me by email:
 
-* Repository has a unique name.
+* Jon Jackson - jonjacksonvibes@gmail.com
 
-* Repository follows best practices for file structure and naming conventions.
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+<a name="video"></a>
 
-* Repository contains multiple descriptive commit messages.
+## Video
 
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
+<a name="screenshots"></a>
 
-## Review
+## Screenshots
 
-You are required to submit BOTH of the following for review:
 
-* The URL of the functional, deployed application.
+#### Login Page
+![Screenshot of Login-page](./develop/images/login.png)
 
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+#### Home Page
+![Screenshot of Homepage](./develop/images/homepage.png)
 
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+#### Project Page
+![Screenshot of Dashboard](./develop/images/dashboard.png)
+
+#### Blog Post
+![Screenshot of Dashboard](./develop/images/blogpost.png)
+
+<a name="links"></a>
+
+## Links
+Github Repository: https://github.com/jonteal/tech-blog
+
+Heroku Live Link: Heroku: 
+
+
+<a name="credits"></a>
+
+## Resources / Credits
+This project was authored by: 
+* Jon Jackson - https://github.com/jonteal
+
+Development of the project utilized npm dependencies: bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, nodemon, and sequelize.
