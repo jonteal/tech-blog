@@ -1,13 +1,13 @@
 {{!-- Loop over each post object in the posts array --}}
 {{#each posts as |post|}}
-<div class="row mb-4 project">
-    <div>
+<article class="message is-info">
+    <div class="message-header">
         <h2>
             <a href="/post/{{post.id}}">{{post.title}}</a>
         </h2>
-        <p>Created by {{post.user.username}}</p>
-
-        <p>{{post.createdAt}}</p>
     </div>
-</div>
+    <div class="message-body">
+        <p>Created by <span class="created-by">{{post.user.username}}</span> on {{format_date date_created}}</p>
+    </div>
+</article>
 {{/each}}

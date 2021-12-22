@@ -1,41 +1,41 @@
 [
     {
-        "comment": "This is a comment on post 1 by user 2.",
+        "comment": "Don't reinvent the wheel! Use a good framework.",
         "user_id": 2,
         "post_id": 1
     },
     {
-        "comment": "This is a comment on post 1 by user 3.",
+        "comment": "Just have a good time and make what feels right!",
         "user_id": 3,
         "post_id": 1
     },
     {
-        "comment": "This is a comment post 1 by user 4.",
+        "comment": "Use smart naming conventions! It will save you many headaches in the end.",
         "user_id": 4,
         "post_id": 1
     },
     {
-        "comment": "This is a comment on post 2 by user 1.",
+        "comment": "They will make your code more readable for other coders.",
         "user_id": 1,
         "post_id": 2
     },
     {
-        "comment": "This is a comment post 2 by user 3.",
+        "comment": "It really helps a lot with user accessibility.",
         "user_id": 3,
         "post_id": 2
     },
     {
-        "comment": "This is a comment on post 2 by user 4.",
+        "comment": "It's just good to be thorough so everything isn't just a bunch of generic divs!",
         "user_id": 4,
         "post_id": 2
     },
     {
-        "comment": "This is a comment on post 3 by user 1.",
+        "comment": "It just is!",
         "user_id": 1,
         "post_id": 3
     },
     {
-        "comment": "This is a comment on post 3 by user 2.",
+        "comment": "It's got the coolest name in my opinion.",
         "user_id": 2,
         "post_id": 3
     }

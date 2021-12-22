@@ -4,38 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technology Today</title>
+    <title>TheDailyDev</title>
+    <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
+{{!-- Main Body --}}
 <body>
     <header>
         <div class="hero">
+        <nav>
 
         <h1>
-            <span role="img" aria-label="cogs"><i class="fas fa-cogs"></i></span>
-            <a href="/">Technology Today</a>
+            <h1 class="main-title fade-in-down"><a href="/">TheDailyDev</a></h1>
         </h1>
 
             {{!-- Navigation Bar --}}
-        <nav>
+        
             <!-- Conditionally render login or logout links -->
             {{#if logged_in}}
-            <a href="/dashboard">dashboard</a> |
-            <button class="no-button" id="logout">logout</button>
+            <button class="button is-info is-outlined navbar-end"><a href="/dashboard">dashboard</a></button>
+            <button class="button is-danger is-outlined navbar-end" id="logout">logout</button>
             {{else}}
-            <a href="/login">login</a>
+            <a class="navbar-item navbar-end" href="/login">login</a>
             {{/if}}
         </nav>
-
-            
+        
         </div>
     </header>
+
+    {{!-- Body --}}
     <main>
         {{{ body }}}
     </main>
 
+{{!-- Conditional Login/Logout JS --}}
     {{#if logged_in}}
     <script src="../js/logout.js"></script>
     {{else}}

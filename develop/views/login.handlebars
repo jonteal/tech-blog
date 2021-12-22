@@ -1,29 +1,10 @@
 {{!-- Main Container --}}
 <div class="row">
 
-    {{!-- Login --}}
-    {{!-- <div class="col-md-6">
-        <h2>Login</h2>
-
-        <form class="form login-form">
-            <div class="form-group">
-                <label for="email-login">Username:</label>
-                <input class="form-input" type="text" id="email-login" />
-            </div>
-            <div class="form-group">
-                <label for="password-login">Password:</label>
-                <input class="form-input" type="password" id="password-login" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">Login</button>
-            </div>
-        </form>
-    </div> --}}
-
-{{!-- BULMA --}}
+{{!-- Login --}}
 <div>
 <h2>Login</h2>
-<form class="login-form">
+<form class="login-form block box">
     <div class="field">
     <p class="control has-icons-left has-icons-right">
         <input class="input form-input" placeholder="username" type="text" id="email-login">
@@ -52,30 +33,12 @@
     </div>
 </form>
 
-    {{!-- Create an Account / Signup --}}
-    {{!-- <div class="col-md-6">
-        <h2>Signup</h2>
+<p class="not-current-member"><em>Not a current member? <br> Sign up below!</em></p>
 
-        <form class="form signup-form">
-        <div class="form-group">
-            <label for="name-signup">Username:</label>
-            <input class="form-input" type="text" id="name-signup" />
-        </div>
-        <div class="form-group">
-            <label for="password-signup">Password:</label>
-            <input class="form-input" type="password" id="password-signup" />
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Signup</button>
-        </div>
-        </form>
-    </div>
-</div> --}}
-
-{{!-- BULMA --}}
+{{!-- Sign up --}}
 
 <h2>Signup</h2>
-<form class="signup-form">
+<form class="signup-form block box">
     <div class="field">
     <p class="control has-icons-left has-icons-right">
         <input class="input form-input" placeholder="username" type="text" id="name-signup">
@@ -98,7 +61,7 @@
     <div class="field">
     <p class="control">
         <button class="button is-success btn" type="submit">
-        Login
+        Sign up!
         </button>
     </p>
     </div>

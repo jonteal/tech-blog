@@ -81,5 +81,5 @@ document
     .addEventListener('click', delButtonHandler);
 
 document
-    .querySelectorAll('.editBtn')
+    .querySelector('.editBtn')
     .addEventListener('click', editButtonHandler);
