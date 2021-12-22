@@ -1,7 +1,4 @@
 
-### Deployment: 32%
-
-* Application deployed at live URL.
 
 * Application loads with no errors.
 
