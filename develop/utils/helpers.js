@@ -9,3 +9,7 @@ hb.registerHelper('format_date', function(date) {
       return month + "/" + day + "/" + year;
 
 });
+
+hb.registerHelper("log", function(something) {
+  console.log(something);
+});

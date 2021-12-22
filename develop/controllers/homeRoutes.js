@@ -83,19 +83,20 @@ router.get('/post/:id', async (req, res) => {
                 {model: User, attributes: ["username"]},
             ],
         });
-
+        // console.log(postData);
         const post = postData.get({ plain: true });
 
-        console.log(post);
-
+        // console.log(post);
+        
         req.session.save(() => {
             req.session.post_id = post.id;
         })
-
-        res.render("blogpost", {
+        let objResults = {
             ...post,
             logged_in: req.session.logged_in,
-        });
+        }
+        console.log(objResults);
+        res.render("blogpost", objResults);
     } catch (err) {
         res.status(500).json(err);
     }

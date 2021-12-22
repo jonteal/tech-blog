@@ -26,24 +26,31 @@ const newFormHandler = async (event) => {
 
 
 // // Edit Post Button Handler
-// const editButtonHandler = async (event) => {
-//     event.preventDefault();
+const editButtonHandler = async (event) => {
+    event.preventDefault();
 
-//     const post = document.querySelector()
-//     if (event.target.hasAttribute('data-id')) {
-//         const id = event.target.getAttribute('data-id');
+    // const post = document.querySelector()
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
 
-//         const response = await fetch(`/api/posts/${id}`, {
-//             method: 'PUT',
-//         });
+        const title = document.querySelector('#post-title').value.trim();
+        const content = document.querySelector('#post-desc').value.trim();
 
-//         if (response.ok ) {
-//             document.location.replace('profile');
-//         } else {
-//             alert('Failed to update project');
-//         }
-//     }
-// };
+        const response = await fetch(`/api/post/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ title, content }),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+console.log(response);
+        if (response.ok ) {
+            // document.location.replace('profile');
+        } else {
+            alert('Failed to update project');
+        }
+    }
+};
 
 
 // Delete Post Button Handler 
@@ -73,3 +80,6 @@ document
     .querySelector('.post-list')
     .addEventListener('click', delButtonHandler);
 
+document
+    .querySelectorAll('.editBtn')
+    .addEventListener('click', editButtonHandler);

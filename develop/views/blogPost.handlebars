@@ -4,17 +4,21 @@ and date created for that post and have the option to leave a comment --}}
 
 <div class="text-center">
     <h2>{{title}}</h2>
-    <p>{{post}}</p>
+    <p>{{content}}</p>
     <p>Created by {{user.username}} on {{format_date date_created}}</p>
 
+{{!-- {{log post}} --}}
+{{log content}}
 
-{{#each comment.comment as |post|}}
+{{#each comments as |comment|}}
+
+{{!-- {{log comment}} --}}
 
 
 <div class="card text-white bg-secondary w-50 mx-auto border-secondary m-3 ">
     <div class="card-body">
-        <h5 class="card-title">{{loud user.username}} on {{format_date createdAt}}</h5>
-        <p class="card-text">{{commentContent}}</p>
+        <h5 class="card-title">{{user.username}} on {{format_date createdAt}}</h5>
+        <p class="card-text">{{comment.comment}}</p>
     </div>
 </div>
 {{/each}}
