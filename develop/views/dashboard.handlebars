@@ -1,9 +1,11 @@
+{{!-- MAIN USER DASHBOARD/PROFILE PAGE TEMPLATE --}}
 <div class="row">
     <div class="col-auto">
         <h2>Welcome, {{username}}!</h2>
     </div>
 </div>
 
+{{!-- CONTAINER TO CREATE A NEW POST --}}
 <div class="row mt-4">
     <div class="col-md-6">
         <h3>Create a New Post:</h3>
@@ -23,6 +25,7 @@
         </form>
     </div>
 
+{{!-- IF USER HAS POSTS, THEY POPULATE HERE --}}
     {{#if posts.length}}
     <div class="col-md-6">
         <h3>Your Posts</h3>
@@ -44,4 +47,5 @@
     {{/if}}
 </div>
 
+{{!-- UTILIZE POST.JS FILE --}}
 <script src="./js/post.js"></script>

@@ -1,8 +1,10 @@
+// HANDLER FOR CREATING NEW COMMENTS
 const newFormHandler = async (event) => {
     event.preventDefault();
 
     const commentContent = document.querySelector('#comment-content').value;
 
+    // POST METHOD TO CREATE NEW COMMENT 
     if (commentContent) {
         const response = await fetch(`/api/comment/comment`, { 
             method: 'POST',
@@ -12,8 +14,9 @@ const newFormHandler = async (event) => {
             },
     });
 
-    console.log(response);
+    // console.log(response);
 
+    // RELOAD THE PAGE AFTER COMMENT POSTS TO SHOW COMMENT IN THREAD
     if (response.ok) {
         document.location.reload(); 
     } else {
@@ -22,7 +25,7 @@ const newFormHandler = async (event) => {
     }
 };
 
-
+// EVENT LISTENER FOR 'ADD' COMMENT BUTTON
 document
     .querySelector('.new-comment-form')
     .addEventListener('submit', newFormHandler);

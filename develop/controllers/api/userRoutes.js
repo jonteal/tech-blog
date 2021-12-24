@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Create a new user / SIGN UP
+// CREATE A NEW USER / SIGN UP
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// Login route
+// LOGIN USER ROUTE
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ 
@@ -69,6 +69,7 @@ router.post('/login', async (req, res) => {
 });
 
 
+// LOGOUT A USER
 router.post('/logout', withAuth, (req, res) => {
     console.log(req.session.logged_in);
     if (req.session.logged_in) {
@@ -80,4 +81,5 @@ router.post('/logout', withAuth, (req, res) => {
     }
 });
 
+// EXPORT ROUTER
 module.exports = router;

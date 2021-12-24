@@ -1,7 +1,6 @@
 # The Daily Dev - Tech Blog
 
 <a name="description"></a>
-<!--  Added description -->
 ## Description
 The purpose of this blog is to be a hub of technology and web development information for developers and coders to have a place to share information about technical concepts, recent advancements, and new technologies. Visitors to the site are able to read and digest the work of others, and if they so wish, can become members and create posts and contribute to the conversation of their community.  
 

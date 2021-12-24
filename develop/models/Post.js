@@ -7,6 +7,7 @@ const sequelize = require("../config/connection");
 
 class Post extends Model {}
 
+// INITIALIZE POST MODEL
 Post.init(
     {
         id: {
@@ -40,4 +41,5 @@ Post.init(
     }
 );
 
+// EXPORT POST MODEL
 module.exports = Post;

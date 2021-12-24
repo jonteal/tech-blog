@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// POST route for comment
 router.post("/comment", withAuth, async (req, res) => {
     console.log(req.body);
     try {
@@ -17,6 +18,7 @@ router.post("/comment", withAuth, async (req, res) => {
     }
 });
 
+// GET route for comments by ID
 router.get("/:id", async (req, res) => {
     try {
         const getPost = await Comment.findByPk(req.params.id, {});
@@ -28,4 +30,5 @@ router.get("/:id", async (req, res) => {
 });
 
 
+// Exporting the router
 module.exports = router;

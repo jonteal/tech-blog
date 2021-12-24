@@ -7,6 +7,7 @@ const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
+// INITIALIZE COMMENT MODEL
 Comment.init(
     {
         id: {
@@ -43,4 +44,5 @@ Comment.init(
     }
 );
 
+// EXPORT COMMENT MODEL
 module.exports = Comment;

@@ -3,12 +3,12 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-// GET all posts
+// GET ALL POSTS
 router.get('/', async (req, res) => {
     try {
-        // GET all posts and JOIN with user data
+        // GET ALL POSTS AND JOIN WITH USER DATA
 
-        console.log(req.body);
+        // console.log(req.body);
         const postData = await Post.findAll({
             include: [
                 {
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             ],
         });
 
-        // Serialize data so the template can read it
+        // SERIALIZE THE DATA SO THE TEMPLATE CAN READ IT
     
         const posts = postData.map((post) => post.get({ plain: true }));
         
@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
 });
 
 
-// GET Login route
+// GET LOGIN ROUTE
 router.get("/login", (req, res) => {
     console.log(req.session);
     if (req.session.logged_in) {
@@ -45,7 +45,7 @@ router.get("/login", (req, res) => {
 
 
 
-// GET dashboard/ profile route
+// GET DASHBOARD/PROFILE ROUTE
 router.get('/dashboard', withAuth, async (req, res) => {
 
     try {
@@ -66,7 +66,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-// // GET Post by ID
+// GET Post by ID
 router.get('/post/:id', async (req, res) => {
 
     try {
@@ -103,5 +103,5 @@ router.get('/post/:id', async (req, res) => {
 });
 
 
-
+// EXPORT ROUTER
 module.exports = router;

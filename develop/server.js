@@ -1,3 +1,4 @@
+// BOILER PLATE SERVER SETUP
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
+// SESSION SETUP
 const sess = {
     secret: "Super secret secret",
     cookie: {

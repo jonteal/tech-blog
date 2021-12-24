@@ -2,6 +2,7 @@
 THEN I am presented with the post title, contents, post creator’s username, 
 and date created for that post and have the option to leave a comment --}}
 
+{{!-- BLOG POST TEMPLATE --}}
 <div class="text-center">
 
     <div class="message is-info">
@@ -19,7 +20,7 @@ and date created for that post and have the option to leave a comment --}}
 
 {{#each comments as |comment|}}
 
-
+{{!-- PREVIOUS COMMENT CARD TEMPLATE --}}
 <div class="card text-white bg-secondary w-50 mx-auto border-secondary m-3 ">
     <div class="card-body">
         <p class="card-text block">{{comment.comment}}</p>
@@ -30,6 +31,7 @@ and date created for that post and have the option to leave a comment --}}
 
     <h4 class="block">Leave a Comment!</h4>
 
+{{!-- LEAVE A NEW COMMENT TEMPLATE --}}
     <form class="form new-comment-form">
         <div class="form-group">
             <label for="comment-content">Write your comment:</label>

@@ -21,7 +21,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
-// DELETE A POST
+// DELETE A POST BY ID
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.destroy({
@@ -43,7 +43,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 
-
+// UPDATE A POST BY ID
 router.put('/:id', async (req, res) => {  
     try {
         const postData = await Post.update({
@@ -64,5 +64,5 @@ router.put('/:id', async (req, res) => {
 });
 
 
-
+// EXPORT ROUTER
 module.exports = router;
