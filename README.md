@@ -179,16 +179,16 @@ If you have any questions or comments, please feel free to contact me by email:
 
 
 #### Login Page
-![Screenshot of Login-page](./develop/images/login.png)
+![Screenshot of Login-page](./images/login.png)
 
 #### Home Page
-![Screenshot of Homepage](./develop/images/homepage.png)
+![Screenshot of Homepage](./images/homepage.png)
 
 #### Project Page
-![Screenshot of Dashboard](./develop/images/dashboard.png)
+![Screenshot of Dashboard](./images/dashboard.png)
 
 #### Blog Post
-![Screenshot of Dashboard](./develop/images/blogpost.png)
+![Screenshot of Dashboard](./images/blogpost.png)
 
 <a name="links"></a>
 
